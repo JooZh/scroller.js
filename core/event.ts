@@ -1,5 +1,5 @@
 export default class event {
-    
+
     element: HTMLElement;
 
     addEvent(): void {

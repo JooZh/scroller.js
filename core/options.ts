@@ -1,5 +1,5 @@
 declare interface options {
-    istenScroll: boolean,           // 是否启用滚动监听实时获取滚动位置
+    listenScroll: boolean,           // 是否启用滚动监听实时获取滚动位置
     isPullRefresh: boolean,          // 是否监听下拉刷新
     isReachBottom: boolean,          // 是否监听触底事件
     scrollingX: boolean,            // 启用x轴滚动
