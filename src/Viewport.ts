@@ -1,5 +1,5 @@
 import TouchHandle from './TouchHandle'
-import {Options} from './interface'
+import {Options} from './interface.d'
 
 class Dimensions extends TouchHandle {
 
@@ -27,10 +27,10 @@ class Dimensions extends TouchHandle {
     protected initEventListener() {
         let el = this.container;
         // 触摸开始事件
-        el.addEventListener('touchstart', (e: TouchEvent) => {
-            if (e.target.tagName.match(/input|textarea|select/i)) return;
-                e.preventDefault();
-                this.doTouchStart(e.touches, e.timeStamp);
+        el.addEventListener('touchstart', (evt) => {
+            if (evt.target.tagName.match(/input|textarea|select/i)) return;
+                evt.preventDefault();
+                this.doTouchStart(evt.touches, evt.timeStamp);
             },
             false
         );

@@ -1,17 +1,17 @@
-import { Options,touchRecord } from './interface'
+import { Options,touchRecord, handler } from './interface.d'
 
 abstract class Attributes {
 
     protected ops: Options
-    protected handles: object
-    protected touchRecord: touchRecord[]
+    protected handles: [] = []
+    protected touchRecord: touchRecord[] = []
 
-  	protected content: Node
-    protected container: Node
+  	protected content!: Node
+    protected container!: Node
 
     protected isTracking: boolean = false
-    protected isDragging: boolean = false              // 用户移动的距离是否已达到启用拖动模式的程度。 提示:只有在移动了一些像素后，才可以不被点击等打断。
-    protected isDecelerating: number = 0         // 是否正在减速中
+    protected isDragging: boolean = false               // 用户移动的距离是否已达到启用拖动模式的程度。 提示:只有在移动了一些像素后，才可以不被点击等打断。
+    protected isDecelerating: number = 0                // 是否正在减速中
     protected isAnimating: boolean = false
     protected interrupted: boolean = true
 
@@ -55,9 +55,9 @@ abstract class Attributes {
     protected penetrationDeceleration: number = 0.03;
     protected penetrationAcceleration: number = 0.08;
 
-    protected refreshStartCb: Function          // 执行回调以启动实际刷新
-    protected refreshCancelCb: Function         // 在停用时执行的回调。这是为了通知用户刷新被取消
-    protected refreshActiveCb: Function         // 回调函数，以在激活时执行。这是为了在用户释放时通知他即将发生刷新
+    protected refreshStartCb!: Function // 执行回调以启动实际刷新
+    protected refreshCancelCb!: Function // 在停用时执行的回调。这是为了通知用户刷新被取消
+    protected refreshActiveCb!: Function // 回调函数，以在激活时执行。这是为了在用户释放时通知他即将发生刷新
 
     public enableScrollX: boolean = false;
 	public enableScrollY: boolean = false;
@@ -67,7 +67,7 @@ abstract class Attributes {
         this.ops.speedRatio = 1;
     }
 
-    public on(event:string, handle:Function) {
+    public on(event:any, handle:Function) {
         if (!this.handles.hasOwnProperty(event)) {
             this.handles[event] = [];
         }

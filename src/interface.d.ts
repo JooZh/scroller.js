@@ -26,7 +26,13 @@ declare interface touchRecord {
     t: number
 }
 
+declare interface handler {
+
+}
+
+
 export {
     Options,
-    touchRecord
+    touchRecord,
+    handler
 }
