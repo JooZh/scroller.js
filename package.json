@@ -2,11 +2,15 @@
   "name": "scroller",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "dist/scroller.umd.js",
+  "module": "dist/scroller.es5.js",
+  "typings": "dist/types/scroller.d.ts",
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "tsc --module commonjs && rollup -c rollup.config.ts && typedoc --out docs --target es6 --theme minimal --mode file src",
-
+    "build": "tsc --module commonjs && rollup -c rollup.config.ts && typedoc --out docs --target es6 --theme minimal --mode file src"
   },
   "devDependencies": {
     "@commitlint/cli": "^7.1.2",
